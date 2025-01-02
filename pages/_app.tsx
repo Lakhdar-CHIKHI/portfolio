@@ -4,12 +4,14 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
 import theme from 'config/theme'
 import FavIconProvider from 'components/Misc/FavIconProvider'
+import { Analytics } from '@vercel/analytics/react'
 
 function LCSite({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <AnimatePresence exitBeforeEnter>
       <ChakraProvider theme={theme}>
         <FavIconProvider>
+          <Analytics/>
           <Component {...pageProps} />
         </FavIconProvider>
       </ChakraProvider>
